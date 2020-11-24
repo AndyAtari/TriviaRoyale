@@ -8,10 +8,14 @@
 
 movie = Category.create(:name => "Movies")
 
-question_1 = Question.create(:category_id => 1, 
+Question.create(:category_id => 1, 
     :trivia => "The Xenomorph from the sci-fi film 'Alien' has acidic blood.",
     :answer_a => "True", :answer_b => "False", :correct_answer => "True")
 
-question_2 = Question.create(:category_id => 1,
-    :trivia => "What is the name of James Dean's character in 'Rebel Without a Cause'?",
-    :answer_a => "Ned Stark", :answer_b => "Jim Kane", :answer_c => "Frank Stark", :answer_d => "Jim Stark", :correct_answer => "Jim Stark")
+Question.create(:category_id => 1,
+    :trivia => "Leonardo DiCaprio won an Oscar for Best Actor in The Aviator.",
+    :answer_a => "True", :answer_b => "False", :correct_answer => "False")
+
+Question.create(:category_id => 1,
+    :trivia => "'Cube','Cube2: Hypercube', and 'Cube Zero' were directed by the same person.",
+    :answer_a => "True", :answer_b => "False", :correct_answer => "False")

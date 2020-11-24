@@ -11,3 +11,7 @@ movie = Category.create(:name => "Movies")
 question_1 = Question.create(:category_id => 1, :difficulty => "medium", 
     :trivia => "The Xenomorph from the sci-fi film 'Alien' has acidic blood.",
     :answers => "False", :correct_answer => "True")
+
+question_2 = Question.create(:category_id => 1, :difficulty => "medium",
+    :trivia => "What is the name of James Dean's character in 'Rebel Without a Cause'?",
+    :answers => ["Ned Stark", "Jim Kane", "Frank Stark"], :correct_answer => "Jim Stark")

@@ -6,12 +6,17 @@ document.addEventListener("click", function() {
 
 const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
+const triviaCard = document.getElementById("triviaCard")
+const buttonContainer = document.getElementById("button-container");
 
-let randomNum = Math.floor(Math.random()*3)+1;
+function fetchTrivia() {
+    let randomNum = Math.floor(Math.random()*3)+1;
 
-fetch(`${BACKEND_URL}/questions/${randomNum}`)
+    fetch(`${BACKEND_URL}/questions/${randomNum}`)
     .then(response => response.json())
     .then(putsTriviaOnPage);
+
+}
 
 function putsTriviaOnPage(question) {
     //questions.forEach(question => {
@@ -21,5 +26,10 @@ function putsTriviaOnPage(question) {
         <p>${question.answer_b}<input type="radio" name="answer" value="${question.answer_b}"></p>
         </div>`
     }
+
+buttonContainer.addEventListener("click", function() {
+    main.innerHTML = "";
+    fetchTrivia();
+})
 
 })

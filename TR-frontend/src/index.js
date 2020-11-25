@@ -7,6 +7,8 @@ document.addEventListener("click", function() {
 const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
+const gifDiv = document.getElementById("gif-container");
+
 
 function fetchTrivia() {
     let randomNum = Math.floor(Math.random()*3)+1;
@@ -17,6 +19,12 @@ function fetchTrivia() {
 
 }
 
+// function fetchBRGif() {
+//     fetch("https://media.giphy.com/media/kEdI683LJtrGmTVVCM/source.mov")
+//     .then(response => response.json())
+//     .then(renderBRGif)
+// }
+
 function putsTriviaOnPage(question) {
         main.innerHTML += `
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
@@ -26,12 +34,24 @@ function putsTriviaOnPage(question) {
         createSubmitButton();
     }
 
-    fetchTrivia();
+function renderBRGif() {
+    // const gifDiv = document.getElementById("gif-container");
+    const img = document.createElement("img");
+    img.src = "https://media.giphy.com/media/kEdI683LJtrGmTVVCM/giphy.gif"
+    gifDiv.appendChild(img);
+
+}
+   
 
 buttonContainer.addEventListener("click", function(e) {
     if (e.target.className === "button1") {
     main.innerHTML = "";
-    fetchTrivia();
+    renderBRGif();
+    createNextButton();
+    }
+    if (e.target.className === "button2") {
+        gifDiv.innerHTML = "";
+        fetchTrivia();
     }
 })
 
@@ -43,6 +63,14 @@ function createSubmitButton() {
         buttonContainer.appendChild(btn)
 }
 
+function createNextButton() {
+    buttonContainer.innerHTML = "";
+    const NextBtn = document.createElement("button");
+    NextBtn.className = "button2";
+    NextBtn.innerText = "Continue to Extraction?";
+    buttonContainer.appendChild(NextBtn);
+}
 
+fetchTrivia();
 
 })

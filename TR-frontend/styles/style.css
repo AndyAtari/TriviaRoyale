@@ -43,7 +43,7 @@ input[type='radio']:checked:after {
     border: 2px solid black;
 }
 
-.button1 {
+.button1, .button2 {
     display:inline-block;
     background-color: #4ef18f;
     border: none;

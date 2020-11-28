@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-document.addEventListener("click", function() {
- console.log(event.target.value)
-})
+// document.addEventListener("click", function() {
+//  console.log(event.target.value)
+// })
 
 const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
@@ -30,6 +30,7 @@ function putsTriviaOnPage(question) {
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
         <p>${question.answer_a}<input type="radio" name="answer" value="${question.answer_a}">
         <p>${question.answer_b}<input type="radio" name="answer" value="${question.answer_b}"></p>
+        <input type="hidden" id="correct-answer" name="correct_answer" value=${question.correct_answer}>
         </div>`
         createSubmitButton();
     }
@@ -45,6 +46,7 @@ function renderBRGif() {
 
 buttonContainer.addEventListener("click", function(e) {
     if (e.target.className === "button1") {
+        check();
     main.innerHTML = "";
     renderBRGif();
     createNextButton();
@@ -71,6 +73,17 @@ function createNextButton() {
     buttonContainer.appendChild(NextBtn);
 }
 
+function check() {
+    let checkedValue = document.querySelector("input:checked").value;
+    let correctAnswer = document.getElementById("correct-answer").value;
+    if (checkedValue === correctAnswer) {
+        console.log("Yay!!!")
+    }
+    
+    }
+
+
 fetchTrivia();
+
 
 })

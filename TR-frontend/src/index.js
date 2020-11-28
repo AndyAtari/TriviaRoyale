@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-// document.addEventListener("click", function() {
-//  console.log(event.target.value)
-// })
-
 const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
@@ -19,11 +15,6 @@ function fetchTrivia() {
 
 }
 
-// function fetchBRGif() {
-//     fetch("https://media.giphy.com/media/kEdI683LJtrGmTVVCM/source.mov")
-//     .then(response => response.json())
-//     .then(renderBRGif)
-// }
 
 function putsTriviaOnPage(question) {
         main.innerHTML += `
@@ -42,14 +33,19 @@ function renderBRGif() {
     gifDiv.appendChild(img);
 
 }
+
+function renderGameOverGif() {
+    const img = document.createElement("img");
+    img.src = "https://media.giphy.com/media/XI1SdG5Tzcnkcvah3Z/giphy.gif"
+    gifDiv.appendChild(img);
+}
    
 
 buttonContainer.addEventListener("click", function(e) {
     if (e.target.className === "button1") {
         check();
-    main.innerHTML = "";
-    renderBRGif();
-    createNextButton();
+        main.innerHTML = "";
+        createNextButton();
     }
     if (e.target.className === "button2") {
         gifDiv.innerHTML = "";
@@ -77,7 +73,10 @@ function check() {
     let checkedValue = document.querySelector("input:checked").value;
     let correctAnswer = document.getElementById("correct-answer").value;
     if (checkedValue === correctAnswer) {
-        console.log("Yay!!!")
+        renderBRGif();
+    }
+    else {
+        renderGameOverGif();
     }
     
     }

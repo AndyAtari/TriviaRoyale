@@ -6,6 +6,7 @@ const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 
 
+
 function fetchTrivia() {
     let randomNum = Math.floor(Math.random()*3)+1;
 
@@ -27,7 +28,6 @@ function putsTriviaOnPage(question) {
     }
 
 function renderBRGif() {
-    // const gifDiv = document.getElementById("gif-container");
     const img = document.createElement("img");
     img.src = "https://media.giphy.com/media/kEdI683LJtrGmTVVCM/giphy.gif"
     gifDiv.appendChild(img);
@@ -42,31 +42,44 @@ function renderGameOverGif() {
    
 
 buttonContainer.addEventListener("click", function(e) {
-    if (e.target.className === "button1") {
+    if (e.target.className === "button-submit") {
         check();
         main.innerHTML = "";
-        createNextButton();
     }
-    if (e.target.className === "button2") {
+    if (e.target.className === "button-continue") {
+        gifDiv.innerHTML = "";
+        fetchTrivia();
+    }
+    if (e.target.className === "button-ng") {
         gifDiv.innerHTML = "";
         fetchTrivia();
     }
 })
 
+function createNewGameButton() {
+        const img = document.createElement("img");
+        img.src = "https://media.giphy.com/media/UPnh9cDVFVZ2E/giphy.gif"
+        gifDiv.appendChild(img);
+        const btn = document.createElement("button");
+        btn.className = "button-ng";
+        btn.innerText = "Start Game";
+        buttonContainer.appendChild(btn)
+}
+
 function createSubmitButton() {
         buttonContainer.innerHTML = ""
         const btn = document.createElement("button");
-        btn.className = "button1";
+        btn.className = "button-submit";
         btn.innerText = "Submit?";
         buttonContainer.appendChild(btn)
 }
 
 function createNextButton() {
-    buttonContainer.innerHTML = "";
-    const NextBtn = document.createElement("button");
-    NextBtn.className = "button2";
-    NextBtn.innerText = "Continue to Extraction?";
-    buttonContainer.appendChild(NextBtn);
+        buttonContainer.innerHTML = "";
+        const NextBtn = document.createElement("button");
+        NextBtn.className = "button-continue";
+        NextBtn.innerText = "Continue to Extraction?";
+        buttonContainer.appendChild(NextBtn);
 }
 
 function check() {
@@ -74,15 +87,16 @@ function check() {
     let correctAnswer = document.getElementById("correct-answer").value;
     if (checkedValue === correctAnswer) {
         renderBRGif();
+        createNextButton();
     }
     else {
         renderGameOverGif();
+        buttonContainer.innerHTML = "";
     }
     
     }
 
 
-fetchTrivia();
-
+createNewGameButton();
 
 })

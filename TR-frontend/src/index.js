@@ -8,10 +8,17 @@ const gifDiv = document.getElementById("gif-container");
 function fetchCategories() {
     fetch(`${BACKEND_URL}/categories`)
     .then(response => response.json())
-    .then( function(categories) { 
-        console.log(categories)
+    // .then( function(categories) { 
+    //     console.log(categories)
+    // })
+    .then(renderCategories)
+}
+
+function renderCategories(categories) {
+    let cat = document.getElementById("category-container");
+    categories.forEach(category => {
+    cat.innerHTML = `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
     })
-    // .then(renderCategories)
 }
 
 

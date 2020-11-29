@@ -5,16 +5,27 @@ const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 
+function fetchCategories() {
+    fetch(`${BACKEND_URL}/categories`)
+    .then(response => response.json())
+    .then( function(categories) { 
+        console.log(categories)
+    })
+    // .then(renderCategories)
+}
 
 
 function fetchTrivia() {
+
     let randomNum = Math.floor(Math.random()*3)+1;
 
-    fetch(`${BACKEND_URL}/questions/${randomNum}`)
+    fetch(`${BACKEND_URL}/categories/1/questions/${randomNum}`)
     .then(response => response.json())
     .then(putsTriviaOnPage);
+    
+    }
 
-}
+
 
 
 function putsTriviaOnPage(question) {
@@ -98,5 +109,6 @@ function check() {
 
 
 createNewGameButton();
+fetchCategories();
 
 })

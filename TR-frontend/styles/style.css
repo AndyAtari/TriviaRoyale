@@ -90,6 +90,10 @@ table, th, td {
     font-family: OCR A Std, monospace;
 }
 
+caption {
+    font-family: fantasy;
+}
+
 #gif-container {
     margin: auto;
     width: 50%;

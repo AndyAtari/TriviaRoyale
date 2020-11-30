@@ -90,6 +90,19 @@ table, th, td {
     font-family: OCR A Std, monospace;
 }
 
+#rules {
+    color: #03a9f4;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: absolute;
+    right: 0;
+    width: 20%;
+    height: 120px;
+    font-size: 35px;
+    text-align: center;
+    background-color: black;
+    font-family: OCR A Std, monospace;
+}
+
 caption {
     font-family: fantasy;
 }

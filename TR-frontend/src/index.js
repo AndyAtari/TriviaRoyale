@@ -15,7 +15,7 @@ function fetchCategories() {
 
 function renderCategories(categories) {
     categories.forEach(category => {
-    cat.innerHTML = `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
+    cat.innerHTML += `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
     })
 }
 
@@ -34,12 +34,14 @@ function fetchTrivia(category) {
 
 
 function putsTriviaOnPage(question) {
+
         main.innerHTML += `
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
         <p>${question.answer_a}<input type="radio" name="answer" value="${question.answer_a}">
         <p>${question.answer_b}<input type="radio" name="answer" value="${question.answer_b}"></p>
         <input type="hidden" id="correct-answer" name="correct_answer" value=${question.correct_answer}>
         </div>`
+    
         createSubmitButton();
     }
 
@@ -58,6 +60,7 @@ function renderGameOverGif() {
    
 
 buttonContainer.addEventListener("click", function(e) {
+
     if (e.target.className === "button-submit") {
         check();
         main.innerHTML = "";
@@ -70,6 +73,7 @@ buttonContainer.addEventListener("click", function(e) {
         const catInput = document.querySelector("input:checked").value;
         cat.innerHTML = "";
         gifDiv.innerHTML = "";
+        console.log(catInput)
         fetchTrivia(catInput);
     }
 })
@@ -110,6 +114,7 @@ function check() {
     else {
         renderGameOverGif();
         buttonContainer.innerHTML = "";
+        // setTimeout("location.reload(true);", 5000);
     }
     
     }

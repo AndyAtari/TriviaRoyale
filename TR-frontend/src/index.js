@@ -1,17 +1,22 @@
+const BACKEND_URL = 'http://localhost:3000';
+const api = new ApiService(BACKEND_URL);
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
-const BACKEND_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
 
 
-function fetchCategories() {
-    fetch(`${BACKEND_URL}/categories`)
-    .then(response => response.json())
-    .then(renderCategories)
-}
+
+// function fetchCategories() {
+//     fetch(`${BACKEND_URL}/categories`)
+//     .then(response => response.json())
+//     .then(renderCategories)
+// }
 
 function renderCategories(categories) {
     categories.forEach(category => {
@@ -119,8 +124,9 @@ function check() {
     
     }
 
-
-createNewGameButton();
-fetchCategories();
+    
+    // api.getAllCategories().then(renderCategories);
+    createNewGameButton();
+    CategoryButton.getAll();
 
 })

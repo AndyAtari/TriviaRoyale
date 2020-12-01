@@ -1,14 +1,19 @@
 const BACKEND_URL = 'http://localhost:3000';
 const api = new ApiService(BACKEND_URL);
 
-
-document.addEventListener("DOMContentLoaded", function() {
-
-// const BACKEND_URL = 'http://localhost:3000';
 const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+// const BACKEND_URL = 'http://localhost:3000';
+// const main = document.querySelector("main");
+// const buttonContainer = document.getElementById("button-container");
+// const gifDiv = document.getElementById("gif-container");
+// const cat = document.getElementById("category-container");
 
 
 
@@ -18,18 +23,18 @@ const cat = document.getElementById("category-container");
 //     .then(renderCategories)
 // }
 
-function renderCategories(categories) {
-    categories.forEach(category => {
-    cat.innerHTML += `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
-    })
-}
+// function renderCategories(categories) {
+//     categories.forEach(category => {
+//     cat.innerHTML += `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
+//     })
+// }
 
 
 function fetchTrivia(category) {
 
-    let randomNum = Math.floor(Math.random()*3)+1;
+    // let randomNum = Math.floor(Math.random()*3)+1;
 
-    fetch(`${BACKEND_URL}/categories/${category}/questions/${randomNum}`)
+    fetch(`${BACKEND_URL}/categories/${category}/questions`)
     .then(response => response.json())
     .then(putsTriviaOnPage);
     
@@ -38,16 +43,17 @@ function fetchTrivia(category) {
 
 
 
-function putsTriviaOnPage(question) {
-
+function putsTriviaOnPage(questions) {
+    questions.forEach(question => {
         main.innerHTML += `
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
-        <p>${question.answer_a}<input type="radio" name="answer" value="${question.answer_a}">
-        <p>${question.answer_b}<input type="radio" name="answer" value="${question.answer_b}"></p>
+        <p>${question.answer_a}<input type="radio"  value="${question.answer_a}">
+        <p>${question.answer_b}<input type="radio"  value="${question.answer_b}"></p>
         <input type="hidden" id="correct-answer" name="correct_answer" value=${question.correct_answer}>
         </div>`
     
         createSubmitButton();
+    })
     }
 
 function renderBRGif() {
@@ -78,7 +84,6 @@ buttonContainer.addEventListener("click", function(e) {
         const catInput = document.querySelector("input:checked").value;
         cat.innerHTML = "";
         gifDiv.innerHTML = "";
-        console.log(catInput)
         fetchTrivia(catInput);
     }
 })
@@ -110,7 +115,7 @@ function createNextButton() {
 }
 
 function check() {
-    let checkedValue = document.querySelector("input:checked").value;
+    let checkedValue = document.querySelectorAll("input:checked").value;
     let correctAnswer = document.getElementById("correct-answer").value;
     if (checkedValue === correctAnswer) {
         renderBRGif();

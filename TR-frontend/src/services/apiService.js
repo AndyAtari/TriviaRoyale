@@ -3,7 +3,7 @@ class ApiService {
         this.baseURL = baseURL;
     }
 
-    getAllQuestions = () => fetch(`${this.baseURL}/questions`).then(resp => resp.json());
+    getAllQuestions = () => fetch(`${this.baseURL}/categories`).then(resp => resp.json());
 
     // getAllCategories = () => fetch(`${this.baseURL}/categories`).then(response => response.json())
 

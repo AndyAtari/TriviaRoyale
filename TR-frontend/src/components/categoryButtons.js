@@ -1,8 +1,8 @@
 class CategoryButton {
     constructor(category) {
         this.category = category 
-        this.renderCategories();
-        
+        this.renderCard();
+        console.log(this)
     }
 
     static getAll() {
@@ -11,9 +11,19 @@ class CategoryButton {
         categories.forEach((category) => new CategoryButton(category)))
     }
 
+    renderCard() {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.id = this.category.id;
+        this.card = card;
+        this.renderCategories();
+        cat.appendChild(card)
+    }
+
     renderCategories() {
-        cat.innerHTML += `<li>${this.category.name} <input type="radio" name="category" value="${this.category.id}"></li>`
+        this.card.innerHTML += `<li>${this.category.name} <input type="radio" name="category" value="${this.category.id}"></li>`
         }
     
 
+    
 }

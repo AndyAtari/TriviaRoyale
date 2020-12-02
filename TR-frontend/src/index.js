@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
 // }
 
 
-function fetchTrivia(category) {
+function fetchTrivia() {
 
-    // let randomNum = Math.floor(Math.random()*3)+1;
+    let randomNum = Math.floor(Math.random()*9)+1;
 
-    fetch(`${BACKEND_URL}/categories/${category}/questions`)
+    fetch(`${BACKEND_URL}/categories/2/questions/${randomNum}`)
     .then(response => response.json())
     .then(putsTriviaOnPage);
     
@@ -43,18 +43,17 @@ function fetchTrivia(category) {
 
 
 
-function putsTriviaOnPage(questions) {
-    questions.forEach(question => {
+function putsTriviaOnPage(question) {
         main.innerHTML += `
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
-        <p>${question.answer_a}<input type="radio"  value="${question.answer_a}">
-        <p>${question.answer_b}<input type="radio"  value="${question.answer_b}"></p>
-        <input type="hidden" id="correct-answer" name="correct_answer" value=${question.correct_answer}>
+        <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
+        <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
+        <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
         </div>`
     
         createSubmitButton();
-    })
     }
+
 
 function renderBRGif() {
     const img = document.createElement("img");
@@ -81,10 +80,10 @@ buttonContainer.addEventListener("click", function(e) {
         fetchTrivia();
     }
     if (e.target.className === "button-ng") {
-        const catInput = document.querySelector("input:checked").value;
+        // const catInput = document.querySelector("input:checked").value;
         cat.innerHTML = "";
         gifDiv.innerHTML = "";
-        fetchTrivia(catInput);
+        fetchTrivia();
     }
 })
 
@@ -115,7 +114,7 @@ function createNextButton() {
 }
 
 function check() {
-    let checkedValue = document.querySelectorAll("input:checked").value;
+    let checkedValue = document.querySelector("input:checked").value;
     let correctAnswer = document.getElementById("correct-answer").value;
     if (checkedValue === correctAnswer) {
         renderBRGif();

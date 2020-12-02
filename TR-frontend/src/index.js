@@ -9,32 +9,11 @@ const cat = document.getElementById("category-container");
 
 document.addEventListener("DOMContentLoaded", function() {
 
-// const BACKEND_URL = 'http://localhost:3000';
-// const main = document.querySelector("main");
-// const buttonContainer = document.getElementById("button-container");
-// const gifDiv = document.getElementById("gif-container");
-// const cat = document.getElementById("category-container");
-
-
-
-// function fetchCategories() {
-//     fetch(`${BACKEND_URL}/categories`)
-//     .then(response => response.json())
-//     .then(renderCategories)
-// }
-
-// function renderCategories(categories) {
-//     categories.forEach(category => {
-//     cat.innerHTML += `<li>${category.name} <input type="radio" name="category" value="${category.id}"></li>`
-//     })
-// }
-
-
-function fetchTrivia() {
+function fetchTrivia(category) {
 
     let randomNum = Math.floor(Math.random()*9)+1;
 
-    fetch(`${BACKEND_URL}/categories/2/questions/${randomNum}`)
+    fetch(`${BACKEND_URL}/categories/${category}/questions/${randomNum}`)
     .then(response => response.json())
     .then(putsTriviaOnPage);
     

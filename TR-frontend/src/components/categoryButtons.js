@@ -6,20 +6,25 @@ class CategoryButton {
     }
 
     static getAll() {
-    // api.getAllCategories().then(renderCategories());
     api.getAllCategories().then((categories) => 
         categories.forEach((category) => new CategoryButton(category)))
     }
 
     attachEventListener() {
-        // console.log(this.card);
         this.card.addEventListener("click", this.handleOnClick) 
     }
 
         handleOnClick = function(e) {
-            console.log(this);
+            if(e.target.className === "button-category"){
+            console.log(this.dataset.id);
             // debugger;
+            cat.innerHTML = "";
+            gifDiv.innerHTML = "";
+            fetchTrivia(this.dataset.id);
+            }
         }
+
+        
     
 
     renderCard() {

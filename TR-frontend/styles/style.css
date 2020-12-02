@@ -48,7 +48,7 @@ input[type='radio']:checked:after {
     border: 2px solid black;
 }
 
-.button-ng, .button-submit, .button-continue {
+.button-submit, .button-continue {
     display:inline-block;
     background-color: #4ef18f;
     border: none;
@@ -69,6 +69,16 @@ input[type='radio']:checked:after {
     transform: translate(-50%, -50%);
     margin-top: 50px;
 
+}
+
+.button-category {
+    border-radius: 4px;
+    background-color: #4ef18f;
+    border: none;
+    font-family: cursive;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(34, 33, 33);
 }
 
 table, th, td {

@@ -2,7 +2,7 @@ class CategoryButton {
     constructor(category) {
         this.category = category 
         this.renderCard();
-        console.log(this)
+        this.attachEventListener();
     }
 
     static getAll() {
@@ -10,6 +10,17 @@ class CategoryButton {
     api.getAllCategories().then((categories) => 
         categories.forEach((category) => new CategoryButton(category)))
     }
+
+    attachEventListener() {
+        // console.log(this.card);
+        this.card.addEventListener("click", this.handleOnClick) 
+    }
+
+        handleOnClick = function(e) {
+            console.log(this);
+            // debugger;
+        }
+    
 
     renderCard() {
         const card = document.createElement("div");
@@ -21,7 +32,9 @@ class CategoryButton {
     }
 
     renderCategories() {
-        this.card.innerHTML += `<li>${this.category.name} <input type="radio" name="category" value="${this.category.id}"></li>`
+        this.card.innerHTML += `
+        <button class="button-category" type="button">${this.category.name}</button>
+        `
         }
     
 

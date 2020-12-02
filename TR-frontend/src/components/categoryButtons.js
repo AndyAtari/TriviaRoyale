@@ -16,13 +16,23 @@ class CategoryButton {
 
         handleOnClick = function(e) {
             if(e.target.className === "button-category"){
+            const id = this.dataset.id 
             console.log(this.dataset.id);
-            // debugger;
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
-            fetchTrivia(this.dataset.id);
+            api.fetchTrivia(id).then((question) => 
+            main.innerHTML += `
+        <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
+        <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
+        <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
+        <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
+        </div>`)
             }
+            
         }
+
+         
+        
 
         
     

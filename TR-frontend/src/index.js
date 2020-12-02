@@ -6,32 +6,34 @@ const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
 
+let randomNum = Math.floor(Math.random()*3)+1;
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
-function fetchTrivia(category) {
+// function fetchTrivia(category) {
 
-    let randomNum = Math.floor(Math.random()*9)+1;
+//     let randomNum = Math.floor(Math.random()*9)+1;
 
-    fetch(`${BACKEND_URL}/categories/${category}/questions/${randomNum}`)
-    .then(response => response.json())
-    .then(putsTriviaOnPage);
+//     fetch(`${BACKEND_URL}/categories/${category}/questions/${randomNum}`)
+//     .then(response => response.json())
+//     .then(putsTriviaOnPage);
     
-    }
+//     }
 
 
 
 
-function putsTriviaOnPage(question) {
-        main.innerHTML += `
-        <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
-        <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
-        <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
-        <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
-        </div>`
+// function putsTriviaOnPage(question) {
+//         main.innerHTML += `
+//         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
+//         <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
+//         <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
+//         <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
+//         </div>`
     
-        createSubmitButton();
-    }
+//         createSubmitButton();
+//     }
 
 
 function renderBRGif() {
@@ -66,14 +68,10 @@ buttonContainer.addEventListener("click", function(e) {
     }
 })
 
-function createNewGameButton() {
+function createNewGameGif() {
         const img = document.createElement("img");
         img.src = "https://media.giphy.com/media/UPnh9cDVFVZ2E/giphy.gif"
         gifDiv.appendChild(img);
-        const btn = document.createElement("button");
-        btn.className = "button-ng";
-        btn.innerText = "Start Game";
-        buttonContainer.appendChild(btn)
 }
 
 function createSubmitButton() {
@@ -109,7 +107,7 @@ function check() {
 
     
     // api.getAllCategories().then(renderCategories);
-    createNewGameButton();
+    createNewGameGif();
     CategoryButton.getAll();
 
 })

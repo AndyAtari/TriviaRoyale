@@ -1,8 +1,23 @@
 class CategoryButton {
+
+    static main = document.querySelector("main");
+    static all = []
+    static currentQuestion = 0
     constructor(category) {
         this.category = category 
         this.renderCard();
         this.attachEventListener();
+        this.constructor.all.push(this)
+        console.log(category)
+    }
+
+    static renderCurrentQuestion(){
+        const question = this.all[this.currentQuestion]
+        this.render(question)
+        this.currentQuestion ++
+       // if the game is over 
+       //     new ScoreForm(totalScore)
+
     }
 
     static getAll() {
@@ -11,17 +26,17 @@ class CategoryButton {
     }
 
     attachEventListener() {
-        this.card.addEventListener("click", this.handleOnClick) 
+        this.card.addEventListener("click", (e) => this.handleOnClick(e)) 
     }
 
         handleOnClick = function(e) {
             if(e.target.className === "button-category"){
-            const id = this.dataset.id 
-            console.log(this.dataset.id);
+            const id = e.target.dataset.id 
+            console.log(e.target.dataset.id);
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
             api.fetchTrivia(id).then((question) => 
-            main.innerHTML += `
+            this.constructor.main.innerHTML += `
         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
         <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
         <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
@@ -31,7 +46,6 @@ class CategoryButton {
             
         }
 
-         
         
 
         
@@ -40,7 +54,6 @@ class CategoryButton {
     renderCard() {
         const card = document.createElement("div");
         card.className = "card";
-        card.dataset.id = this.category.id;
         this.card = card;
         this.renderCategories();
         cat.appendChild(card)
@@ -48,7 +61,7 @@ class CategoryButton {
 
     renderCategories() {
         this.card.innerHTML += `
-        <button class="button-category" type="button">${this.category.name}</button>
+        <button class="button-category" data-id=${this.category.id} type="button">${this.category.name}</button>
         `
         }
     

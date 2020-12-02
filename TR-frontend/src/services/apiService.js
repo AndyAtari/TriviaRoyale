@@ -3,9 +3,11 @@ class ApiService {
         this.baseURL = baseURL;
     }
 
-    getAllCategories = () => fetch(`${this.baseURL}/categories`).then(response => response.json())
+    getAllQuestions = () => fetch(`${this.baseURL}/questions`).then(resp => resp.json());
 
-    fetchTrivia = (id) => fetch(`${this.baseURL}/categories/${id}/questions/${randomNum}`)
-    .then(response => response.json())
+    // getAllCategories = () => fetch(`${this.baseURL}/categories`).then(response => response.json())
+
+    // fetchTrivia = (id) => fetch(`${this.baseURL}/categories/${id}/questions/${randomNum}`)
+    // .then(response => response.json())
     
 }

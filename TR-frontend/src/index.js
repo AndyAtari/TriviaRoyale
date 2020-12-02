@@ -1,12 +1,12 @@
 const BACKEND_URL = 'http://localhost:3000';
 const api = new ApiService(BACKEND_URL);
+Game.getAll();
 
-const main = document.querySelector("main");
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
 
-let randomNum = Math.floor(Math.random()*3)+1;
+// let randomNum = Math.floor(Math.random()*3)+1;
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // function putsTriviaOnPage(question) {
-//         main.innerHTML += `
-//         <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
-//         <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
-//         <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
-//         <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
-//         </div>`
+        // main.innerHTML += `
+        // <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
+        // <p>${question.answer_a}<input type="radio" name="answer"  value="${question.answer_a}">
+        // <p>${question.answer_b}<input type="radio" name="answer"  value="${question.answer_b}"></p>
+        // <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
+        // </div>`
     
 //         createSubmitButton();
 //     }
@@ -108,6 +108,6 @@ function check() {
     
     // api.getAllCategories().then(renderCategories);
     createNewGameGif();
-    CategoryButton.getAll();
+    // CategoryButton.getAll();
 
 })

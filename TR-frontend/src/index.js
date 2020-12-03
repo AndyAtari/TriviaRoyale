@@ -8,6 +8,13 @@ const cat = document.getElementById("category-container");
 main = document.querySelector("main");
 // let randomNum = Math.floor(Math.random()*3)+1;
 
+// function createSubmitButton() {
+//     buttonContainer.innerHTML = ""
+//     const btn = document.createElement("button");
+//     btn.className = "button-submit";
+//     btn.innerText = "Submit?";
+//     buttonContainer.appendChild(btn)
+// }
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -74,13 +81,13 @@ function createNewGameGif() {
         gifDiv.appendChild(img);
 }
 
-function createSubmitButton() {
-        buttonContainer.innerHTML = ""
-        const btn = document.createElement("button");
-        btn.className = "button-submit";
-        btn.innerText = "Submit?";
-        buttonContainer.appendChild(btn)
-}
+// function createSubmitButton() {
+//         buttonContainer.innerHTML = ""
+//         const btn = document.createElement("button");
+//         btn.className = "button-submit"; hide
+//         btn.innerText = "Submit?";
+//         buttonContainer.appendChild(btn)
+// }
 
 function createNextButton() {
         buttonContainer.innerHTML = "";

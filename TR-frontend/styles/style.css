@@ -59,16 +59,10 @@ input[type='radio']:checked:after {
     color: rgb(34, 33, 33);
     font-family: cursive;
     padding: 14px 20px;
-    margin: 5px 0;
     font-size: 20px;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    margin-top: 50px;
-
+    margin: auto;
+    display: block;
+    
 }
 
 .button-category {

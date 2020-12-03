@@ -1,10 +1,12 @@
 class Game {
    
+   
 
     constructor(trivia) {
         this.trivia = trivia
         this.renderCategories()
         this.attachEventListener();
+
     }
 
     static getAll() {
@@ -31,22 +33,28 @@ class Game {
             const quiz = round.questions
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
-            quiz.forEach(function(question) {
-                main.innerHTML += `
+            quiz.forEach((question) => this.renderQuestions(question))
+            this.createSubmitButton();
+        } 
+    }
+
+    renderQuestions(question) {
+            console.log(question)
+
+            main.innerHTML += `
             <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
             <p>${question.answer_a}<input type="radio" name="answer" value="${question.answer_a}">
             <p>${question.answer_b}<input type="radio"  name="answer" value="${question.answer_b}"></p>
             <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
             </div>`
-            })
-            console.log(this)
-        } 
     }
-    
-    
-    
 
-    
-
+    createSubmitButton() {
+        buttonContainer.innerHTML = ""
+        const btn = document.createElement("button");
+        btn.className = "button-submit";
+        btn.innerText = "Submit?";
+        buttonContainer.appendChild(btn)
+        } 
 
 }

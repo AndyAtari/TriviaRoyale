@@ -20,10 +20,10 @@ class CategoryButton {
 
     }
 
-    static getAll() {
-    api.getAllCategories().then((categories) => 
-        categories.forEach((category) => new CategoryButton(category)))
-    }
+    // static getAll() {
+    // api.getAllCategories().then((categories) => 
+    //     categories.forEach((category) => new CategoryButton(category)))
+    // }
 
     attachEventListener() {
         this.card.addEventListener("click", (e) => this.handleOnClick(e)) 
@@ -59,11 +59,11 @@ class CategoryButton {
         cat.appendChild(card)
     }
 
-    renderCategories() {
-        this.card.innerHTML += `
-        <button class="button-category" data-id=${this.category.id} type="button">${this.category.name}</button>
-        `
-        }
+    // renderCategories() {
+    //     this.card.innerHTML += `
+    //     <button class="button-category" data-id=${this.category.id} type="button">${this.category.name}</button>
+    //     `
+    //     }
     
 
     

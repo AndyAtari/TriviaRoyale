@@ -5,7 +5,7 @@ Game.getAll();
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
-
+main = document.querySelector("main");
 // let randomNum = Math.floor(Math.random()*3)+1;
 
 

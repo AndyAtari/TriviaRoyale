@@ -33,20 +33,25 @@ class Game {
             const quiz = round.questions
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
-            this.renderQuestions(quiz);
             this.createSubmitButton();
+            this.renderQuestions(quiz);
         } 
     }
 
     renderQuestions(questions) {
+           
             for(let i=0; i<questions.length; i++){
             main.innerHTML += `
             <div class="card" data-id="${questions[i].id}"><p>${questions[i].trivia}</p>
+            <div class="answers">
             <p>${questions[i].answer_a}<input type="radio" name="answer${[i]}" value="${questions[i].answer_a}">
             <p>${questions[i].answer_b}<input type="radio"  name="answer${[i]}" value="${questions[i].answer_b}"></p>
             <input type="hidden" id="correct-answer" name="correct_answer" value="${questions[i].correct_answer}">
+            </div>
             </div>`
         }
+           
+            this.showScore(questions);
         }
     
 
@@ -57,8 +62,16 @@ class Game {
         btn.innerText = "Submit?";
         buttonContainer.appendChild(btn)
         } 
-
     
+    showScore(questions) {
+        const answerContainer = document.querySelectorAll(".answers");
+        
+        let userAnswer = "";
+        let score = 0;
 
-}
+        for(let i=0; i<questions.length; i++) {
+            console.log(answerContainer[i])
+        }
+    }
 
+    }

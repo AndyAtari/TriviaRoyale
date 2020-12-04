@@ -5,7 +5,10 @@ Game.getAll();
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
-main = document.querySelector("main");
+const main = document.querySelector("main");
+const card = document.getElementById("card");
+const scoreDiv = document.getElementById("score-container");
+
 // let randomNum = Math.floor(Math.random()*3)+1;
 
 // function createSubmitButton() {
@@ -57,23 +60,23 @@ function renderGameOverGif() {
 }
    
 
-buttonContainer.addEventListener("click", function(e) {
+// buttonContainer.addEventListener("click", function(e) {
 
-    if (e.target.className === "button-submit") {
-        check();
-        main.innerHTML = "";
-    }
-    if (e.target.className === "button-continue") {
-        gifDiv.innerHTML = "";
-        fetchTrivia();
-    }
-    if (e.target.className === "button-ng") {
-        // const catInput = document.querySelector("input:checked").value;
-        cat.innerHTML = "";
-        gifDiv.innerHTML = "";
-        fetchTrivia();
-    }
-})
+//     if (e.target.className === "button-submit") {
+//         check();
+//         main.innerHTML = "";
+//     }
+//     if (e.target.className === "button-continue") {
+//         gifDiv.innerHTML = "";
+//         fetchTrivia();
+//     }
+//     if (e.target.className === "button-ng") {
+//         // const catInput = document.querySelector("input:checked").value;
+//         cat.innerHTML = "";
+//         gifDiv.innerHTML = "";
+//         fetchTrivia();
+//     }
+// })
 
 function createNewGameGif() {
         const img = document.createElement("img");

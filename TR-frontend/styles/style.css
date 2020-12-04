@@ -13,10 +13,17 @@ main {
     text-align: center;
 }
 
-h2 {
+h1 {
     color: #5AB9EA;
     font: italic small-caps bold 50px/2 cursive;
     text-align: center;
+}
+
+h3 {
+    color: #FF007F;
+    font: italic small-caps bold 50px/2 cursive;
+    text-align: center;
+    
 }
 
 input[type='radio']:after {

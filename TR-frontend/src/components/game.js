@@ -86,7 +86,9 @@ class Game {
                 answerContainer[i].style.color = "red"; 
             }
         }
+
         scoreDiv.innerHTML = "YOUR SCORE : " + score;
+        renderGameOverGif();
          }
         })
     }

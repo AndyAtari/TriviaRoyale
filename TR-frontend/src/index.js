@@ -9,6 +9,27 @@ const main = document.querySelector("main");
 const card = document.getElementById("card");
 const scoreDiv = document.getElementById("score-container");
 
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+function createNewGameGif() {
+    const img = document.createElement("img");
+    img.src = "https://media.giphy.com/media/UPnh9cDVFVZ2E/giphy.gif"
+    gifDiv.appendChild(img);
+}
+
+createNewGameGif();
+
+})
+
+function renderGameOverGif() {
+    const img = document.createElement("img");
+    img.src = "https://media.giphy.com/media/XI1SdG5Tzcnkcvah3Z/giphy.gif"
+    gifDiv.appendChild(img);
+}
+
 // let randomNum = Math.floor(Math.random()*3)+1;
 
 // function createSubmitButton() {
@@ -19,7 +40,7 @@ const scoreDiv = document.getElementById("score-container");
 //     buttonContainer.appendChild(btn)
 // }
 
-document.addEventListener("DOMContentLoaded", function() {
+
 
 // function fetchTrivia(category) {
 
@@ -46,18 +67,14 @@ document.addEventListener("DOMContentLoaded", function() {
 //     }
 
 
-function renderBRGif() {
-    const img = document.createElement("img");
-    img.src = "https://media.giphy.com/media/kEdI683LJtrGmTVVCM/giphy.gif"
-    gifDiv.appendChild(img);
+// function renderBRGif() {
+//     const img = document.createElement("img");
+//     img.src = "https://media.giphy.com/media/kEdI683LJtrGmTVVCM/giphy.gif"
+//     gifDiv.appendChild(img);
 
-}
+// }
 
-function renderGameOverGif() {
-    const img = document.createElement("img");
-    img.src = "https://media.giphy.com/media/XI1SdG5Tzcnkcvah3Z/giphy.gif"
-    gifDiv.appendChild(img);
-}
+
    
 
 // buttonContainer.addEventListener("click", function(e) {
@@ -78,11 +95,7 @@ function renderGameOverGif() {
 //     }
 // })
 
-function createNewGameGif() {
-        const img = document.createElement("img");
-        img.src = "https://media.giphy.com/media/UPnh9cDVFVZ2E/giphy.gif"
-        gifDiv.appendChild(img);
-}
+
 
 // function createSubmitButton() {
 //         buttonContainer.innerHTML = ""
@@ -92,32 +105,32 @@ function createNewGameGif() {
 //         buttonContainer.appendChild(btn)
 // }
 
-function createNextButton() {
-        buttonContainer.innerHTML = "";
-        const NextBtn = document.createElement("button");
-        NextBtn.className = "button-continue";
-        NextBtn.innerText = "Continue to Extraction?";
-        buttonContainer.appendChild(NextBtn);
-}
+// function createNextButton() {
+//         buttonContainer.innerHTML = "";
+//         const NextBtn = document.createElement("button");
+//         NextBtn.className = "button-continue";
+//         NextBtn.innerText = "Continue to Extraction?";
+//         buttonContainer.appendChild(NextBtn);
+// }
 
-function check() {
-    let checkedValue = document.querySelector("input:checked").value;
-    let correctAnswer = document.getElementById("correct-answer").value;
-    if (checkedValue === correctAnswer) {
-        renderBRGif();
-        createNextButton();
-    }
-    else {
-        renderGameOverGif();
-        buttonContainer.innerHTML = "";
-        // setTimeout("location.reload(true);", 5000);
-    }
+// function check() {
+//     let checkedValue = document.querySelector("input:checked").value;
+//     let correctAnswer = document.getElementById("correct-answer").value;
+//     if (checkedValue === correctAnswer) {
+//         renderBRGif();
+//         createNextButton();
+//     }
+//     else {
+//         renderGameOverGif();
+//         buttonContainer.innerHTML = "";
+//         // setTimeout("location.reload(true);", 5000);
+//     }
     
-    }
+//     }
 
     
-    // api.getAllCategories().then(renderCategories);
-    createNewGameGif();
-    // CategoryButton.getAll();
+//     // api.getAllCategories().then(renderCategories);
+//     createNewGameGif();
+//     // CategoryButton.getAll();
 
-})
+// })

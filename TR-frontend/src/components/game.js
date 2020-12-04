@@ -33,21 +33,22 @@ class Game {
             const quiz = round.questions
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
-            quiz.forEach((question) => this.renderQuestions(question))
+            this.renderQuestions(quiz);
             this.createSubmitButton();
         } 
     }
 
-    renderQuestions(question) {
-            console.log(question)
-
+    renderQuestions(questions) {
+            for(let i=0; i<questions.length; i++){
             main.innerHTML += `
-            <div class="card" data-id="${question.id}"><p>${question.trivia}</p>
-            <p>${question.answer_a}<input type="radio" name="answer" value="${question.answer_a}">
-            <p>${question.answer_b}<input type="radio"  name="answer" value="${question.answer_b}"></p>
-            <input type="hidden" id="correct-answer" name="correct_answer" value="${question.correct_answer}">
+            <div class="card" data-id="${questions[i].id}"><p>${questions[i].trivia}</p>
+            <p>${questions[i].answer_a}<input type="radio" name="answer${[i]}" value="${questions[i].answer_a}">
+            <p>${questions[i].answer_b}<input type="radio"  name="answer${[i]}" value="${questions[i].answer_b}"></p>
+            <input type="hidden" id="correct-answer" name="correct_answer" value="${questions[i].correct_answer}">
             </div>`
-    }
+        }
+        }
+    
 
     createSubmitButton() {
         buttonContainer.innerHTML = ""
@@ -57,4 +58,7 @@ class Game {
         buttonContainer.appendChild(btn)
         } 
 
+    
+
 }
+

@@ -48,7 +48,7 @@ input[type='radio']:checked:after {
     border: 2px solid black;
 }
 
-.button-submit, .button-continue {
+.button-submit {
     display:inline-block;
     background-color: #4ef18f;
     border: none;
@@ -65,6 +65,10 @@ input[type='radio']:checked:after {
     
 }
 
+.button-submit:hover {
+    background-color: gold;
+}
+
 .button-category {
     border-radius: 4px;
     background-color: #4ef18f;
@@ -74,6 +78,12 @@ input[type='radio']:checked:after {
     cursor: pointer;
     color: rgb(34, 33, 33);
 }
+
+.button-category:hover {
+    background-color: gold;
+}
+
+
 
 table, th, td {
     border: 1px solid green;
@@ -121,6 +131,13 @@ caption {
 #category-container {
     text-align: center;
     color: #5AB9EA;
+}
+
+#score-container {
+    text-align: center;
+    color: #5AB9EA;
+    padding: 20px;
+    
 }
   
   

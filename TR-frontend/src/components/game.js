@@ -64,14 +64,33 @@ class Game {
         } 
     
     showScore(questions) {
+        buttonContainer.addEventListener("click", function(e) {
+            if (e.target.className === "button-submit") {
+
+        
+        
         const answerContainer = document.querySelectorAll(".answers");
         
         let userAnswer = "";
         let score = 0;
 
         for(let i=0; i<questions.length; i++) {
-            console.log(answerContainer[i])
+            userAnswer = (answerContainer[i].querySelector('input[name=answer'+i+']:checked')||{}).value;
+
+            if(userAnswer === questions[i].correct_answer) {
+                score += 100;
+
+                answerContainer[i].style.color = "green";
+            }
+            else {
+                answerContainer[i].style.color = "red"; 
+            }
         }
+        scoreDiv.innerHTML = "YOUR SCORE : " + score;
+         }
+        })
     }
 
-    }
+    
+}
+    

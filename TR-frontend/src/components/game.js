@@ -102,10 +102,14 @@ class Game {
 
         let totalScore = score + timerBonus;
 
-        scoreDiv.innerHTML = "YOUR SCORE : " + totalScore;
+        scoreDiv.innerHTML = `<div id="user-score" data-id"${totalScore}">
+        <p> YOUR SCORE <br>  ${totalScore}</p>`;
         renderGameOverGif();
+        // api.updateScoreboard(totalScore);
          }
+         
         })
+    
     }
 
     

@@ -8,7 +8,7 @@ const cat = document.getElementById("category-container");
 const main = document.querySelector("main");
 const card = document.getElementById("card");
 const scoreDiv = document.getElementById("score-container");
-
+const countdown = document.getElementById("countdown");
 
 
 

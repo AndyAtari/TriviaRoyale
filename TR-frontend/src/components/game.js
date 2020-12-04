@@ -6,7 +6,17 @@ class Game {
         this.trivia = trivia
         this.renderCategories()
         this.attachEventListener();
+        
+    }
 
+    startCountdown() {
+        
+        let countNumber = parseInt(countdown.innerText);
+        
+
+        setInterval(function() {
+            countdown.innerText = countNumber--;
+        }, 1000)
     }
 
     static getAll() {
@@ -33,8 +43,10 @@ class Game {
             const quiz = round.questions
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
+            this.startCountdown();
             this.createSubmitButton();
             this.renderQuestions(quiz);
+            
         } 
     }
 
@@ -67,7 +79,8 @@ class Game {
         buttonContainer.addEventListener("click", function(e) {
             if (e.target.className === "button-submit") {
 
-        
+        let timerBonus = parseInt(countdown.innerText);
+
         
         const answerContainer = document.querySelectorAll(".answers");
         
@@ -78,7 +91,7 @@ class Game {
             userAnswer = (answerContainer[i].querySelector('input[name=answer'+i+']:checked')||{}).value;
 
             if(userAnswer === questions[i].correct_answer) {
-                score += 100;
+                score += 25;
 
                 answerContainer[i].style.color = "green";
             }
@@ -87,7 +100,9 @@ class Game {
             }
         }
 
-        scoreDiv.innerHTML = "YOUR SCORE : " + score;
+        let totalScore = score + timerBonus;
+
+        scoreDiv.innerHTML = "YOUR SCORE : " + totalScore;
         renderGameOverGif();
          }
         })

@@ -1,6 +1,7 @@
 const BACKEND_URL = 'http://localhost:3000';
 const api = new ApiService(BACKEND_URL);
 Game.getAll();
+HighScoreBoard.getAll();
 
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");

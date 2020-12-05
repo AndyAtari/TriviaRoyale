@@ -13,10 +13,20 @@ class Game {
         
         let countNumber = parseInt(countdown.innerText);
         
-
-        setInterval(function() {
+        let interval = setInterval(function() {
             countdown.innerText = countNumber--;
         }, 1000)
+
+        this.stopCountdown(interval);
+        
+    }
+
+    stopCountdown(interval) {
+        buttonContainer.addEventListener("click", function(e) {
+            if (e.target.className === "button-submit") {
+                clearInterval(interval)
+            }
+        })
     }
 
     static getAll() {
@@ -71,6 +81,7 @@ class Game {
         buttonContainer.innerHTML = ""
         const btn = document.createElement("button");
         btn.className = "button-submit";
+        btn.id = "submitQuizButton";
         btn.innerText = "Submit?";
         buttonContainer.appendChild(btn)
         } 
@@ -105,6 +116,7 @@ class Game {
         scoreDiv.innerHTML = `<div id="user-score" data-id"${totalScore}">
         <p> YOUR SCORE <br>  ${totalScore}</p>`;
         renderGameOverGif();
+        
         // api.updateScoreboard(totalScore);
          }
          

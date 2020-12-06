@@ -25,6 +25,15 @@ createNewGameGif();
 
 })
 
+function createSubmitButton() {
+    buttonContainer.innerHTML = ""
+    const btn = document.createElement("button");
+    btn.className = "button-submit";
+    btn.id = "submitQuizButton";
+    btn.innerText = "Submit?";
+    buttonContainer.appendChild(btn)
+    } 
+
 function renderGameOverGif() {
     const img = document.createElement("img");
     img.src = "https://media.giphy.com/media/XI1SdG5Tzcnkcvah3Z/giphy.gif"
@@ -35,9 +44,13 @@ function renderHighScoreButton() {
         buttonContainer.innerHTML = ""
         const btn = document.createElement("button");
         btn.className = "button-highScore";
+        btn.id = "save-score";
         btn.innerText = "Save High Score?";
         buttonContainer.appendChild(btn)
 }
+
+
+
 // let randomNum = Math.floor(Math.random()*3)+1;
 
 // function createSubmitButton() {
@@ -142,3 +155,9 @@ function renderHighScoreButton() {
 //     // CategoryButton.getAll();
 
 // })
+
+
+
+
+
+

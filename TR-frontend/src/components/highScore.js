@@ -3,7 +3,7 @@ class HighScoreBoard {
     constructor(scores) {
         this.scores = scores;
         this.renderScoreBoard();
-        this.attachEventListener();
+        
     }
     
     static getAll() {
@@ -23,16 +23,13 @@ class HighScoreBoard {
 
     }
 
-    attachEventListener() {
-        buttonContainer.addEventListener("click", this.handleOnClick);
-    }
-
-    handleOnClick = (event) => {
-            // if (event.target.className === "button-submit") {
-            //     const userScoreDiv = document.getElementById("user-score")
-            //     const finalScore = userScoreDiv.getAttribute("data-id")
-            //     console.log(finalScore)
-            // }
-    }
+    
 
 }  
+
+function test() {
+    const saveScore = document.getElementById("save-score");
+    saveScore.addEventListener("click", function(e) {
+        console.log("this is my test")
+    })
+}

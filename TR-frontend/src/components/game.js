@@ -54,9 +54,8 @@ class Game {
             cat.innerHTML = "";
             gifDiv.innerHTML = "";
             this.startCountdown();
-            this.createSubmitButton();
+            createSubmitButton();
             this.renderQuestions(quiz);
-            
         } 
     }
 
@@ -74,17 +73,11 @@ class Game {
         }
            
             this.showScore(questions);
+            
         }
     
 
-    createSubmitButton() {
-        buttonContainer.innerHTML = ""
-        const btn = document.createElement("button");
-        btn.className = "button-submit";
-        btn.id = "submitQuizButton";
-        btn.innerText = "Submit?";
-        buttonContainer.appendChild(btn)
-        } 
+   
     
     showScore(questions) {
         buttonContainer.addEventListener("click", function(e) {
@@ -115,16 +108,18 @@ class Game {
 
         scoreDiv.innerHTML = `<div id="user-score" data-id"${totalScore}">
         <p> YOUR SCORE <br>  ${totalScore}</p>`;
-        renderGameOverGif();
+        renderGameOverGif(); 
         renderHighScoreButton();
-        
-        // api.updateScoreboard(totalScore);
+        test();
          }
-         
+        
         })
-    
+        
     }
 
     
 }
-    
+
+
+
+

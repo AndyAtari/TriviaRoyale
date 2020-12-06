@@ -55,7 +55,7 @@ input[type='radio']:checked:after {
     border: 2px solid black;
 }
 
-.button-submit {
+.button-submit, .button-highScore {
     display:inline-block;
     background-color: #4ef18f;
     border: none;
@@ -72,7 +72,7 @@ input[type='radio']:checked:after {
     
 }
 
-.button-submit:hover {
+.button-submit:hover, .button-highScore:hover {
     background-color: gold;
 }
 

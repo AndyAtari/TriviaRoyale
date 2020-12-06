@@ -33,6 +33,7 @@ function renderToScoreBoard() {
         const userScoreDiv = document.getElementById("user-score");
         let newScore = userScoreDiv.getAttribute("data-id");
         let finalScore = parseInt(newScore);
-        api.updateScoreBoard(finalScore).then((playerScore) => console.log(playerScore));
+        let userName = "DOT";
+        api.updateScoreBoard(userName, finalScore).then((playerScore) => console.log(playerScore));
     })
 }

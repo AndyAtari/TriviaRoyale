@@ -7,12 +7,13 @@ class ApiService {
 
     getAllScores = () => fetch(`${this.baseURL}/high_scores`).then(resp => resp.json());
 
-    updateScoreBoard = (finalScore) => fetch(`${this.baseURL}/high_scores`, { 
+    updateScoreBoard = (userName, finalScore) => fetch(`${this.baseURL}/high_scores`, { 
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
+            user: userName,
             score: finalScore
         })
      })

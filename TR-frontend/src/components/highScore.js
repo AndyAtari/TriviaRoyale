@@ -27,9 +27,11 @@ class HighScoreBoard {
 
 }  
 
-function test() {
+function renderToScoreBoard() {
     const saveScore = document.getElementById("save-score");
     saveScore.addEventListener("click", function(e) {
-        console.log("this is my test")
+        const userScoreDiv = document.getElementById("user-score");
+        let finalScore = userScoreDiv.getAttribute("data-id");
+        console.log(finalScore);
     })
 }

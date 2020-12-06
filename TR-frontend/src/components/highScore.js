@@ -3,6 +3,7 @@ class HighScoreBoard {
     constructor(scores) {
         this.scores = scores;
         this.renderScoreBoard();
+        this.attachEventListener();
     }
     
     static getAll() {
@@ -20,6 +21,18 @@ class HighScoreBoard {
             highScoreTable.appendChild(tr);
         })
 
+    }
+
+    attachEventListener() {
+        buttonContainer.addEventListener("click", this.handleOnClick);
+    }
+
+    handleOnClick = (event) => {
+            // if (event.target.className === "button-submit") {
+            //     const userScoreDiv = document.getElementById("user-score")
+            //     const finalScore = userScoreDiv.getAttribute("data-id")
+            //     console.log(finalScore)
+            // }
     }
 
 }  

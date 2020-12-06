@@ -116,6 +116,7 @@ class Game {
         scoreDiv.innerHTML = `<div id="user-score" data-id"${totalScore}">
         <p> YOUR SCORE <br>  ${totalScore}</p>`;
         renderGameOverGif();
+        renderHighScoreButton();
         
         // api.updateScoreboard(totalScore);
          }

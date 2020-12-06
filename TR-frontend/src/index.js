@@ -31,6 +31,13 @@ function renderGameOverGif() {
     gifDiv.appendChild(img);
 }
 
+function renderHighScoreButton() {
+        buttonContainer.innerHTML = ""
+        const btn = document.createElement("button");
+        btn.className = "button-highScore";
+        btn.innerText = "Save High Score?";
+        buttonContainer.appendChild(btn)
+}
 // let randomNum = Math.floor(Math.random()*3)+1;
 
 // function createSubmitButton() {

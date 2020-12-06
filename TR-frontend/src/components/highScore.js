@@ -31,7 +31,8 @@ function renderToScoreBoard() {
     const saveScore = document.getElementById("save-score");
     saveScore.addEventListener("click", function(e) {
         const userScoreDiv = document.getElementById("user-score");
-        let finalScore = userScoreDiv.getAttribute("data-id");
-        console.log(finalScore);
+        let newScore = userScoreDiv.getAttribute("data-id");
+        let finalScore = parseInt(newScore);
+        api.updateScoreBoard(finalScore).then((playerScore) => console.log(playerScore));
     })
 }

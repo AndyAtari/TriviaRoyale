@@ -10,7 +10,7 @@ const main = document.querySelector("main");
 const card = document.getElementById("card");
 const scoreDiv = document.getElementById("score-container");
 const countdown = document.getElementById("countdown");
-
+const form = document.getElementById("form-container");
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -45,8 +45,18 @@ function renderHighScoreButton() {
         const btn = document.createElement("button");
         btn.className = "button-highScore";
         btn.id = "save-score";
-        btn.innerText = "Save High Score?";
+        btn.innerText = "Save Name & High Score?";
         buttonContainer.appendChild(btn)
+}
+
+function renderForm() {
+    buttonContainer.innerHTML = "";
+    const form = document.getElementById("form-container");
+    form.innerHTML = ` 
+    <form id="player-form" action="#" method="post">
+    <label for="new-player">Player Name:</label>
+    <input type="text" id="new-player" name="new-player" placeholder="High Score Name!">
+    </form>`
 }
 
 
@@ -144,7 +154,7 @@ function renderHighScoreButton() {
 //     else {
 //         renderGameOverGif();
 //         buttonContainer.innerHTML = "";
-//         // setTimeout("location.reload(true);", 5000);
+//         setTimeout("location.reload(true);", 5000);
 //     }
     
 //     }

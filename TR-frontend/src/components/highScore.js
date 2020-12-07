@@ -29,11 +29,13 @@ class HighScoreBoard {
 
 function renderToScoreBoard() {
     const saveScore = document.getElementById("save-score");
-    saveScore.addEventListener("click", function(e) {
+    saveScore.addEventListener("click", function() {
         const userScoreDiv = document.getElementById("user-score");
         let newScore = userScoreDiv.getAttribute("data-id");
         let finalScore = parseInt(newScore);
-        let userName = "DOT";
-        api.updateScoreBoard(userName, finalScore).then((playerScore) => console.log(playerScore));
+        let userName = document.getElementById("new-player").value;
+        api.updateScoreBoard(userName, finalScore);
+        setTimeout("location.reload(true);", 1000);
     })
 }
+

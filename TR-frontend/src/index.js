@@ -52,11 +52,11 @@ function renderHighScoreButton() {
 function renderForm() {
     buttonContainer.innerHTML = "";
     const form = document.getElementById("form-container");
-    form.innerHTML = ` 
-    <form id="player-form" action="#" method="post">
+    form.innerHTML = `
+    <div id="player-form">
     <label for="new-player">Player Name:</label>
     <input type="text" id="new-player" name="new-player" placeholder="High Score Name!">
-    </form>`
+    </div>`
 }
 
 

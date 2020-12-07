@@ -35,7 +35,7 @@ function renderToScoreBoard() {
         let finalScore = parseInt(newScore);
         let userName = document.getElementById("new-player").value;
         api.updateScoreBoard(userName, finalScore);
-        setTimeout("location.reload(true);", 1000);
+        setTimeout("location.reload(true);", 500);
     })
 }
 

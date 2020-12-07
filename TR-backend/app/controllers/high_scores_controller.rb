@@ -1,7 +1,7 @@
 class HighScoresController < ApplicationController
 
     def index
-        @scores = HighScore.all 
+        @scores = HighScore.all.order(score: :desc)
         render json: @scores, except: [:created_at, :updated_at]
     end
 

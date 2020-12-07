@@ -145,20 +145,6 @@ caption {
     font-size: 35px;
 }
 
-input[type="submit"] {
-    border-radius: 4px;
-    background-color: #4ef18f;
-    border: none;
-    font-family: cursive;
-    font-size: 20px;
-    cursor: pointer;
-    color: rgb(34, 33, 33);
-}
-
-input[type="submit"]:hover {
-    background-color: gold;
-}
-
 #player-form {
     text-align: center;
 }

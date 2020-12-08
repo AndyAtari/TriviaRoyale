@@ -3,11 +3,8 @@ const api = new ApiService(BACKEND_URL);
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
-const main = document.querySelector("main");
-const card = document.getElementById("card");
-const scoreDiv = document.getElementById("score-container");
 const countdown = document.getElementById("countdown");
-const form = document.getElementById("form-container");
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

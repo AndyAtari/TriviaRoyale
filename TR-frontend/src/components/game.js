@@ -1,14 +1,12 @@
 class Game {
    
-   
-
     constructor(trivia) {
         this.trivia = trivia
         this.renderCategories()
         this.attachEventListener();
         
     }
-
+    
     startCountdown() {
         
         let countNumber = parseInt(countdown.innerText);
@@ -61,7 +59,9 @@ class Game {
 
     renderQuestions(questions) {
            
-            for(let i=0; i<questions.length; i++){
+        const main = document.querySelector("main");
+            
+        for(let i=0; i<questions.length; i++){
             main.innerHTML += `
             <div class="card" data-id="${questions[i].id}"><p>${questions[i].trivia}</p>
             <div class="answers">
@@ -80,6 +80,8 @@ class Game {
    
     
     showScore(questions) {
+
+        const scoreDiv = document.getElementById("score-container");
         buttonContainer.addEventListener("click", function(e) {
             if (e.target.className === "button-submit") {
 

@@ -111,7 +111,7 @@ class Game {
         renderGameOverGif(); 
         renderForm();
         renderHighScoreButton();
-        renderToScoreBoard();
+        HighScoreBoard.renderToScoreBoard();
          }
         
         })

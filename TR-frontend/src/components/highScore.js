@@ -23,19 +23,19 @@ class HighScoreBoard {
 
     }
 
+    static renderToScoreBoard() {
+        const saveScore = document.getElementById("save-score");
+        saveScore.addEventListener("click", function() {
+            const userScoreDiv = document.getElementById("user-score");
+            let newScore = userScoreDiv.getAttribute("data-id");
+            let finalScore = parseInt(newScore);
+            let userName = document.getElementById("new-player").value;
+            api.updateScoreBoard(userName, finalScore);
+            setTimeout("location.reload(true);", 500);
+        })
+    }
     
 
 }  
 
-function renderToScoreBoard() {
-    const saveScore = document.getElementById("save-score");
-    saveScore.addEventListener("click", function() {
-        const userScoreDiv = document.getElementById("user-score");
-        let newScore = userScoreDiv.getAttribute("data-id");
-        let finalScore = parseInt(newScore);
-        let userName = document.getElementById("new-player").value;
-        api.updateScoreBoard(userName, finalScore);
-        setTimeout("location.reload(true);", 500);
-    })
-}
 

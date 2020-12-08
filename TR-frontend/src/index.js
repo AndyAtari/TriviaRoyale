@@ -1,8 +1,5 @@
 const BACKEND_URL = 'http://localhost:3000';
 const api = new ApiService(BACKEND_URL);
-Game.getAll();
-HighScoreBoard.getAll();
-
 const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
@@ -14,16 +11,20 @@ const form = document.getElementById("form-container");
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    startScreen();
+})
+
+function startScreen() {
+    Game.getAll();
+    HighScoreBoard.getAll();
+    createNewGameGif();
+}
 
 function createNewGameGif() {
     const img = document.createElement("img");
     img.src = "https://media.giphy.com/media/UPnh9cDVFVZ2E/giphy.gif"
     gifDiv.appendChild(img);
 }
-
-createNewGameGif();
-
-})
 
 function createSubmitButton() {
     buttonContainer.innerHTML = ""

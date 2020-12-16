@@ -13,7 +13,7 @@ class HighScoreBoard {
     renderScoreBoard() {
         this.scores.forEach(function(score) {
             const highScoreTable = document.getElementById("high-score")
-            let tr = document.createElement("tr");
+            const tr = document.createElement("tr");
             tr.innerHTML += `
             <td>${score.user}</td>
             <td>${score.score}</td>
@@ -27,9 +27,9 @@ class HighScoreBoard {
         const saveScore = document.getElementById("save-score");
         saveScore.addEventListener("click", function() {
             const userScoreDiv = document.getElementById("user-score");
-            let newScore = userScoreDiv.getAttribute("data-id");
-            let finalScore = parseInt(newScore);
-            let userName = document.getElementById("new-player").value;
+            const newScore = userScoreDiv.getAttribute("data-id");
+            const finalScore = parseInt(newScore);
+            const userName = document.getElementById("new-player").value;
             api.updateScoreBoard(userName, finalScore);
             setTimeout("location.reload(true);", 500);
         })

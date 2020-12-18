@@ -3,8 +3,10 @@ class HighScoreBoard {
     constructor(scores) {
         this.scores = scores;
         this.renderScoreBoard();
-        
+        HighScoreBoard.all.push(scores)
     }
+
+    static all = [];
     
     static getAll() {
         api.getAllScores().then((scores) => new HighScoreBoard(scores))
@@ -15,8 +17,10 @@ class HighScoreBoard {
             const highScoreTable = document.getElementById("high-score")
             const tr = document.createElement("tr");
             tr.innerHTML += `
+            
             <td>${score.user}</td>
             <td>${score.score}</td>
+            
             `
             highScoreTable.appendChild(tr);
         })

@@ -4,6 +4,7 @@ const buttonContainer = document.getElementById("button-container");
 const gifDiv = document.getElementById("gif-container");
 const cat = document.getElementById("category-container");
 const countdown = document.getElementById("countdown");
+const flip = document.getElementById("flip-container");
 
 
 
@@ -15,6 +16,8 @@ function startScreen() {
     Game.getAll();
     HighScoreBoard.getAll();
     createNewGameGif();
+    reverseButton();
+    reverseOrder();
 }
 
 function createNewGameGif() {
@@ -31,6 +34,13 @@ function createSubmitButton() {
     btn.innerText = "Submit?";
     buttonContainer.appendChild(btn)
     } 
+
+function reverseButton() {
+    const btn = document.createElement("button");
+    btn.id = "reverseButton";
+    btn.innerText = "Flip Order?";
+    flip.appendChild(btn);
+}
 
 function renderGameOverGif() {
     const img = document.createElement("img");
@@ -56,6 +66,37 @@ function renderForm() {
     <input type="text" id="new-player" name="new-player" placeholder="High Score Name!">
     </div>`
 }
+
+function reverseOrder() {
+    
+    const reverse = document.getElementById("reverseButton");
+    const highScoreTable = document.getElementById("high-score")
+
+    reverse.addEventListener("click", function() {
+        highScoreTable.innerHTML = "";
+        highScoreTable.innerHTML = `
+        <caption>HIGH SCORES</caption>
+            <tr>
+               <th>NAME</th>
+               <th>SCORE</th>
+            </tr>`
+        let scoreBoard = HighScoreBoard.all 
+        let newScoreBoard = scoreBoard[0];
+        let sortedBoard = newScoreBoard.sort().reverse();
+        sortedBoard.forEach((board) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML += `
+            <td>${board.user}</td>
+            <td>${board.score}</td>
+            `
+            highScoreTable.appendChild(tr);
+        })
+    })
+}
+
+
+
+
 
 
 
